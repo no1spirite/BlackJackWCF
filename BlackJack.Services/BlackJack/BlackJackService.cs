@@ -2,6 +2,8 @@ namespace BlackJack.Services.BlackJack
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
+    using System.Web.Hosting;
     using System.Xml;
 
     using global::BlackJack.Services.BlackJack.Objects;
@@ -42,7 +44,8 @@ namespace BlackJack.Services.BlackJack
                     JoinGameMessageFromServer outMsg = new JoinGameMessageFromServer();
                     outMsg.playerId = msg.playerId;
                     outMsg.nickname = this.players[sessionId];
-                    string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+                    //string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+                    string filename = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "Table1.xml");
                     XmlDocument xmlDoc = new XmlDocument();
                     try
                     {
@@ -80,7 +83,8 @@ namespace BlackJack.Services.BlackJack
                 this.PushToAllClients(outMsg);
                 this.writer.PlayerRemoved(msg);
 
-                string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+                //string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+                string filename = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "Table1.xml");
                 XmlDocument xmlDoc = new XmlDocument();
                 xmlDoc.Load(filename);
                 XmlNodeList currentPlayers = xmlDoc.SelectNodes("/Table/Players/Player");
@@ -108,7 +112,8 @@ namespace BlackJack.Services.BlackJack
             {
                 DealMessageToServer msg = (DealMessageToServer)data;
 
-                string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+                //string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+                string filename = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "Table1.xml");
                 XmlDocument xmlDoc = new XmlDocument();
                 xmlDoc.Load(filename);
                 XmlNodeList currentPlayers = xmlDoc.SelectNodes("/Table/Players/Player");
@@ -211,7 +216,8 @@ namespace BlackJack.Services.BlackJack
                 this.players.Remove(sessionId);
                 this.writer.PlayersRemoved(lcm);
 
-                string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+                //string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+                string filename = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "Table1.xml");
                 XmlDocument xmlDoc = new XmlDocument();
                 xmlDoc.Load(filename);
                 XmlNodeList currentPlayers = xmlDoc.SelectNodes("/Table/Players/Player");

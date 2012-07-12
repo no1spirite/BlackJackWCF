@@ -1,7 +1,9 @@
 ﻿namespace BlackJack.Services.BlackJack.XML
 {
     using System;
+    using System.IO;
     using System.Threading;
+    using System.Web.Hosting;
     using System.Xml;
 
     using global::BlackJack.Services.BlackJack.Objects;
@@ -11,8 +13,8 @@
         ReaderWriterLock rwl = new ReaderWriterLock();
         public XmlWriter()
         {
-            string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
-
+            //string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+            string filename = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "Table1.xml");
             XmlDocument xmlDoc = new XmlDocument();
 
             try
@@ -39,7 +41,8 @@
         public void PlayerAdded(AddPlayerMessageToServer msg)
         {
             this.rwl.AcquireWriterLock(10000);
-            string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+            //string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+            string filename = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "Table1.xml");
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(filename);
             XmlNode root = xmlDoc.DocumentElement;
@@ -64,7 +67,8 @@
         public void PlayerRemoved(RemovePlayerMessageToServer msg)
         {
             this.rwl.AcquireWriterLock(10000);
-            string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+            //string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+            string filename = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "Table1.xml");
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(filename);
             XmlNode root = xmlDoc.DocumentElement;
@@ -78,7 +82,8 @@
         public void PlayersRemoved(LeaveGameMessageFromServer msg)
         {
             this.rwl.AcquireWriterLock(10000);
-            string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+            //string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+            string filename = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "Table1.xml");
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(filename);
             XmlNode root = xmlDoc.DocumentElement;
@@ -94,7 +99,8 @@
         public void PlayersRemoved(ClearPlayersMessageToServer msg)
         {
             this.rwl.AcquireWriterLock(10000);
-            string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+            //string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+            string filename = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "Table1.xml");
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(filename);
             XmlNode root = xmlDoc.DocumentElement;
@@ -115,7 +121,8 @@
         public void PlayerBet(BetMessageToServer msg)
         {
             this.rwl.AcquireWriterLock(10000);
-            string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+            //string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+            string filename = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "Table1.xml");
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(filename);
             XmlNode root = xmlDoc.DocumentElement;
@@ -130,7 +137,8 @@
         public void DealCards(Deck deck)
         {
             this.rwl.AcquireWriterLock(10000);
-            string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+            //string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+            string filename = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "Table1.xml");
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(filename);
             XmlNodeList players = xmlDoc.SelectNodes("/Table/Players/Player");
@@ -162,7 +170,8 @@
         public void PlayerHit(HitMessageToServer msg, Deck deck)
         {
             this.rwl.AcquireWriterLock(10000);
-            string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+            //string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+            string filename = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "Table1.xml");
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(filename);
             XmlNode hand = xmlDoc.SelectSingleNode("/Table/Players/Player[@PlayerId='" + msg.playerId + "']/Hands/Hand[@HandId='"+ msg.handId +"']");
@@ -179,7 +188,8 @@
         public void PlayerDouble(DoubleMessageToServer msg, Deck deck)
         {
             this.rwl.AcquireWriterLock(10000);
-            string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+            //string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+            string filename = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "Table1.xml");
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(filename);
             XmlNode hand = xmlDoc.SelectSingleNode("/Table/Players/Player[@PlayerId='" + msg.playerId + "']/Hands/Hand[@HandId='" + msg.handId + "']");
@@ -205,7 +215,8 @@
         public void PlayerSplit(SplitMessageToServer msg, Deck deck)
         {
             this.rwl.AcquireWriterLock(10000);
-            string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+            //string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+            string filename = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "Table1.xml");
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(filename);
             XmlNode hands = xmlDoc.SelectSingleNode("/Table/Players/Player[@PlayerId='" + msg.playerId + "']/Hands");
@@ -258,7 +269,8 @@
         public void DealerRemove()
         {
             this.rwl.AcquireWriterLock(10000);
-            string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+            //string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+            string filename = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "Table1.xml");
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(filename);
             XmlNodeList dealerCards = xmlDoc.SelectNodes("/Table/Dealer/DealerCards/Card");
@@ -272,7 +284,8 @@
 
         public XmlDocument GetXmlDoc()
         {
-            string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+            //string filename = AppDomain.CurrentDomain.BaseDirectory.ToString() + @"/Table1.xml";
+            string filename = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, "App_Data", "Table1.xml");
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(filename);
             return xmlDoc;
