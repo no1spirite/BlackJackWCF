@@ -1,0 +1,5 @@
+﻿<%@ServiceHost
+ language="C#"
+ Debug="true"
+ Factory="BlackJack.Services.BlackJack.BlackJackServiceFactory"
+ Service="BlackJack.Services.BlackJack.BlackJackService" %>

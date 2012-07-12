@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Table>
+  <Players>
+    <Player PlayerId="3" PlayerName="dsfsd">
+      <Hands>
+        <Hand HandId="1">
+          <Cards>
+            <Card CardRank="Seven" CardSuit="Spade" CardValue="7" />
+            <Card CardRank="Two" CardSuit="Diamond" CardValue="2" />
+            <Card CardRank="Six" CardSuit="Spade" CardValue="6" />
+          </Cards>
+          <Chips>
+            <Chip ChipAmount="100" />
+            <Chip ChipAmount="100" />
+            <Chip ChipAmount="100" />
+            <Chip ChipAmount="100" />
+            <Chip ChipAmount="100" />
+            <Chip ChipAmount="100" />
+            <Chip ChipAmount="100" />
+            <Chip ChipAmount="100" />
+            <Chip ChipAmount="100" />
+            <Chip ChipAmount="100" />
+            <Chip ChipAmount="100" />
+            <Chip ChipAmount="100" />
+            <Chip ChipAmount="100" />
+            <Chip ChipAmount="100" />
+          </Chips>
+        </Hand>
+        <Hand HandId="2">
+          <Cards>
+          </Cards>
+          <Chips>
+          </Chips>
+        </Hand>
+      </Hands>
+    </Player>
+    <Player PlayerId="4" PlayerName="dsfsd">
+      <Hands>
+        <Hand HandId="1">
+          <Cards>
+            <Card CardRank="Jack" CardSuit="Spade" CardValue="10" />
+            <Card CardRank="Five" CardSuit="Diamond" CardValue="5" />
+          </Cards>
+          <Chips>
+            <Chip ChipAmount="100" />
+            <Chip ChipAmount="100" />
+            <Chip ChipAmount="100" />
+            <Chip ChipAmount="100" />
+            <Chip ChipAmount="100" />
+            <Chip ChipAmount="100" />
+          </Chips>
+        </Hand>
+      </Hands>
+    </Player>
+    <Player PlayerId="5" PlayerName="dsfsd">
+      <Hands>
+        <Hand HandId="1">
+          <Cards>
+            <Card CardRank="Nine" CardSuit="Heart" CardValue="9" />
+            <Card CardRank="Eight" CardSuit="Spade" CardValue="8" />
+          </Cards>
+          <Chips>
+            <Chip ChipAmount="100" />
+            <Chip ChipAmount="100" />
+            <Chip ChipAmount="100" />
+            <Chip ChipAmount="100" />
+            <Chip ChipAmount="100" />
+            <Chip ChipAmount="50" />
+            <Chip ChipAmount="50" />
+            <Chip ChipAmount="50" />
+            <Chip ChipAmount="20" />
+            <Chip ChipAmount="20" />
+            <Chip ChipAmount="20" />
+            <Chip ChipAmount="20" />
+            <Chip ChipAmount="10" />
+            <Chip ChipAmount="10" />
+            <Chip ChipAmount="10" />
+            <Chip ChipAmount="10" />
+            <Chip ChipAmount="10" />
+            <Chip ChipAmount="10" />
+            <Chip ChipAmount="10" />
+          </Chips>
+        </Hand>
+      </Hands>
+    </Player>
+  </Players>
+  <Dealer>
+    <DealerCards>
+      <Card CardRank="Seven" CardSuit="Diamond" CardValue="7" />
+      <Card CardRank="Jack" CardSuit="Heart" CardValue="10" />
+    </DealerCards>
+  </Dealer>
+</Table>
